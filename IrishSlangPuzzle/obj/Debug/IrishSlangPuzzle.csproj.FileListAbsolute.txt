@@ -10,10 +10,12 @@ C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangP
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\Bin\Debug\Properties\WMAppManifest.xml
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\Bin\Debug\IrishSlangPuzzle_Debug_AnyCPU.xap
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\App.g.cs
-C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\MainPage.g.cs
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\IrishSlangPuzzle.g.resources
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\IrishSlangPuzzle.Resources.AppResources.resources
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\IrishSlangPuzzle.csproj.GenerateResource.Cache
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\IrishSlangPuzzle.dll
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\IrishSlangPuzzle.pdb
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\XapCacheFile.xml
+C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\MainPage.g.cs
+C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\CreateUser.g.cs
+C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\ImageWord.g.cs

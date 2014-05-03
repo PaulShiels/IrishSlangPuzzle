@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WindowsPhoneMVC.Libs</id>
+    <version>0.7.2.133</version>
+    <title>Windows Phone MVC (Libs Only)</title>
+    <authors>Jake Ginnivan</authors>
+    <owners>Jake Ginnivan</owners>
+    <projectUrl>http://windowsphonefoundations.net/windowsphonemvc/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An MVC + MVVM implementation for windows phone 7, supporting type safe navigation, MVVM, wp7 lifecycle/tombstoning and much more! This package only contains the libraries, no default controllers, views, viewmodels, or instructions</description>
+    <summary>An MVC + MVVM implementation for windows phone 7, supporting type safe navigation, MVVM, wp7 lifecycle/tombstoning and much more! This package only contains the libraries, no default controllers, views, viewmodels, or instructions</summary>
+    <tags>windows phone 7 wp7 mvc</tags>
+    <dependencies>
+      <dependency id="WindowsPhoneEssentials" />
+    </dependencies>
+  </metadata>
+</package>

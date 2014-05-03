@@ -7,35 +7,43 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using IrishSlangPuzzle.Resources;
+using System.IO;
 
 namespace IrishSlangPuzzle
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        // Constructor
+        public string buttomName { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
-
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+            User u = new User();
+            if (App.Current.users.Count() > 0)
+                foreach (User us in App.Current.users)
+                {
+                    lbxUsers.Items.Add(us.ToString());
+                }
+            
         }
 
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
+        public MainPage(string buttomName)
+        {
+            InitializeComponent();
+            User u = new User();
+            if (App.Current.users.Count() > 0)
+                foreach (User us in App.Current.users)
+                {
+                    lbxUsers.Items.Add(us.ToString());
+                }
+            btnAddUser.Content = buttomName;
+        }
 
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
+        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = new CreateUser();
+        }
 
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        
     }
 }

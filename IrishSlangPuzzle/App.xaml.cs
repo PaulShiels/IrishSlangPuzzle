@@ -7,11 +7,21 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using IrishSlangPuzzle.Resources;
+using System.Collections.Generic;
+using System.IO;
 
 namespace IrishSlangPuzzle
 {
+
     public partial class App : Application
     {
+        public List<User> users { get; set; }
+
+        public static new App Current
+        {
+            get { return Application.Current as App; }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -61,6 +71,7 @@ namespace IrishSlangPuzzle
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            LoadUsers();
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -219,5 +230,42 @@ namespace IrishSlangPuzzle
                 throw;
             }
         }
+
+        private void LoadUsers()
+        {
+            System.IO.Stream src = Application.GetResourceStream(new Uri("IrishSlangPuzzle;component/Users.csv", UriKind.Relative)).Stream;
+            using (StreamReader sr = new StreamReader(src))
+            {
+                string text = sr.ReadToEnd();
+                User u = new User();
+                u.name = text;
+                u.points = 0;
+                App.Current.users = new List<User>();
+                users.Add(u);
+                //u.users = new List<User>();
+                //u.users.Add(u);
+            }
+
+            //try
+            //{
+            //    string line = "";
+            //    using (StreamReader sr = new StreamReader("Users.csv"))
+            //    {
+            //        while ((line = sr.ReadLine()) != null)
+            //        {
+            //            User u = new User();
+            //            u.name = line;
+            //            u.points = 0;
+            //            u.users.Add(u);
+            //        }
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    //throw;
+            //}
+        }
+
     }
 }
