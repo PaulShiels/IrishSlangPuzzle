@@ -16,34 +16,31 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Select the word that corresponds to the picture:" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <Image Margin="40" Source="Images\Car1.jpg"></Image>
-        </StackPanel>
+        <TextBlock Grid.ColumnSpan="3" Text="Select the word that corresponds to the picture:" TextWrapping="Wrap" FontSize="32" />
+        <Image Grid.ColumnSpan="3" Grid.Row="1" Source="Images\Car1.jpg" Margin="0"></Image>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" Text="There is a fine ______" FontSize="40"></TextBlock>
+        <Button Grid.Row="3" Content="Lorry" FontSize="35" Grid.Column="0"></Button>
+        <Button Grid.Row="3" Content="Yock" FontSize="35" Grid.Column="1"></Button>
+        <Button Grid.Row="3" Content="Dog" FontSize="35" Grid.Column="2"></Button>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-            <TextBlock HorizontalAlignment="Center" Text="There is a fine ______" FontSize="40"></TextBlock>
-                <StackPanel HorizontalAlignment="Center" Margin="30">
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Lorry" FontSize="35"></Button>
-                    <Button Content="Yock" FontSize="35"></Button>
-                    <Button Content="Dog" FontSize="35"></Button>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Duck" FontSize="35"></Button>
-                    <Button Content="Animal" FontSize="35"></Button>
-                    <Button Content="Box" FontSize="35"></Button>
-                </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
+        <Button Grid.Row="4" Grid.Column="0" Content="Duck" FontSize="35"></Button>
+        <Button Grid.Row="4" Grid.Column="1" Content="Animal" FontSize="35"></Button>
+        <Button Grid.Row="4" Grid.Column="2" Content="Box" FontSize="35"></Button>
+
+        
     </Grid>
 
 </phone:PhoneApplicationPage>
