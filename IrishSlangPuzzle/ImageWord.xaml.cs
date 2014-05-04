@@ -9,14 +9,14 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.Threading;
 
 namespace IrishSlangPuzzle
 {
     public partial class ImageWord : PhoneApplicationPage
-    {
-        public DispatcherTimer clock = new DispatcherTimer();
+    {              
         public User u { get; set; }
-        private int skipTimer { get; set; }
         public string imgSource { get; set; }
         public string sentance { get; set; }
         public List<string> answersList { get; set; }
@@ -27,6 +27,13 @@ namespace IrishSlangPuzzle
         public string answer5 { get; set; }
         public string answer6 { get; set; }
         public int correctAns { get; set; }
+
+        public DispatcherTimer clock = new DispatcherTimer();
+        public DispatcherTimer flashTimer = new DispatcherTimer(); 
+        private int skipTimer;
+        private int flashCount=0;
+        private bool btnSolvePressed = false;
+        private Button buttonToFlash;
 
         public ImageWord()
         {
@@ -52,15 +59,25 @@ namespace IrishSlangPuzzle
             skipTimer = 5;
             clock.Tick+=new EventHandler(clock_Tick);
             clock.Interval= new TimeSpan(0,0,1);
-            clock.Start();
+            clock.Start();            
         }
 
         private void clock_Tick(object sender, EventArgs e)
         {
             if (skipTimer > 0)
             {
-                skipTimer--;
                 btnSolve.Content = String.Format("Solve {0}", skipTimer);
+                skipTimer--;
+            }
+            else if (btnSolvePressed)
+            {
+                clock.Stop();
+
+                //Set up new timer to flash the answer button
+                flashTimer.Tick += new EventHandler(flashTimer_Tick);
+                flashTimer.Interval = new TimeSpan(0, 0, 0, 0, 200);
+                buttonToFlash = GetButtonToFlash(); 
+                flashTimer.Start();
             }
             else
             {
@@ -85,9 +102,7 @@ namespace IrishSlangPuzzle
             ans5.Text = answer5;
             ans6.Text = answer6;
             AddAnswersToList();
-        }
-
-        
+        }        
 
         private void AddAnswersToList()
         {
@@ -99,23 +114,21 @@ namespace IrishSlangPuzzle
             answersList.Add(answer6);
         }
 
-        private void setOpacityZindex(FrameworkElement e1, FrameworkElement e2, FrameworkElement e3, FrameworkElement e4, FrameworkElement e5, FrameworkElement e6, int opacity, int zIndex)
+        private void setOpacityZindex(double opacity, int zIndex)
         {
-            e1.Opacity = opacity;
-            Canvas.SetZIndex(e1, zIndex);
-            e2.Opacity = opacity;
-            Canvas.SetZIndex(e2, zIndex);
-            e3.Opacity = opacity;
-            Canvas.SetZIndex(e3, zIndex);
-            e4.Opacity = opacity;
-            Canvas.SetZIndex(e4, zIndex);
-            e5.Opacity = opacity;
-            Canvas.SetZIndex(e6, zIndex);
-            e6.Opacity = opacity;
-            Canvas.SetZIndex(e6, zIndex);
-        }
-
-        
+            btnAns1.Opacity = opacity;
+            Canvas.SetZIndex(btnAns1, zIndex);
+            btnAns2.Opacity = opacity;
+            Canvas.SetZIndex(btnAns2, zIndex);
+            btnAns3.Opacity = opacity;
+            Canvas.SetZIndex(btnAns3, zIndex);
+            btnAns4.Opacity = opacity;
+            Canvas.SetZIndex(btnAns4, zIndex);
+            btnAns5.Opacity = opacity;
+            Canvas.SetZIndex(btnAns5, zIndex);
+            btnAns6.Opacity = opacity;
+            Canvas.SetZIndex(btnAns6, zIndex);
+        }        
 
         private void CheckAnswer(int btnNum)
         {
@@ -160,7 +173,7 @@ namespace IrishSlangPuzzle
             txtInstruction.Opacity = 0.1;
             Image.Opacity = 0.2;
             txtSentance.Opacity = 0;
-            setOpacityZindex(btnAns1, btnAns2, btnAns3, btnAns4, btnAns5, btnAns6, 0, -2);
+            setOpacityZindex(0, -2);
 
             txtSure.Visibility = Visibility.Visible;
             spnl.Visibility = Visibility.Visible;
@@ -169,7 +182,8 @@ namespace IrishSlangPuzzle
 
         private void btnYes_Click(object sender, RoutedEventArgs e)
         {
-            
+            btnNo_Click(sender, e);
+            btnSolvePressed = true;
         }
 
         private void btnNo_Click(object sender, RoutedEventArgs e)
@@ -180,8 +194,78 @@ namespace IrishSlangPuzzle
             spnl.Visibility = Visibility.Collapsed;
             btnSkip.Visibility = Visibility.Visible;
             txtSentance.Opacity = 1;
-            setOpacityZindex(btnAns1, btnAns2, btnAns3, btnAns4, btnAns5, btnAns6, 1, 1);
+            setOpacityZindex(1, 1);
         }
+
+        private void flashTimer_Tick(object sender, EventArgs e)
+        {
+            switch (flashCount)
+            {
+                case 0:
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Yellow);
+                    break;
+                case 1:
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Transparent);
+                    break;
+                case 2:
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Yellow);
+                    break;
+                case 3:
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Transparent);
+                    break;
+                case 4:
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Yellow);
+                    break;
+                default:
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Green);
+                    break;
+            }
+            btnSolve.Content = "Next";
+            btnSolve.Click += new RoutedEventHandler(NextPuzzle);
+            btnSkip.IsEnabled = false;
+            btnSkip.Opacity = 0;
+            setOpacityZindex(0.5, 1);
+            buttonToFlash.Opacity = 1;
+            btnAns1.IsEnabled = false;
+            btnAns2.IsEnabled = false;
+            btnAns3.IsEnabled = false;
+            btnAns4.IsEnabled = false;
+            btnAns5.IsEnabled = false;
+            btnAns6.IsEnabled = false;
+            txtInstruction.Opacity = 1;
+            Image.Opacity = 1;
+            txtSure.Visibility = Visibility.Collapsed;
+            spnl.Visibility = Visibility.Collapsed;
+            btnSkip.Visibility = Visibility.Visible;
+            txtSentance.Opacity = 1;
+            flashCount++;
+        }
+
+        private void NextPuzzle(object sender, EventArgs e)
+        {
+            this.Content = new ImageWord(u, "Images\\Lion1.jpg", "Would you take a look at the  ______", "Beast", "Wee Dinasor", "Big Ket", "Buck", "Pet", "Dog", 3);
+        }
+
+        private Button GetButtonToFlash()
+        {
+            switch (correctAns)
+            {
+                case 1:
+                    return btnAns1;
+                case 2:
+                    return btnAns2;
+                case 3:
+                    return btnAns3;
+                case 4:
+                    return btnAns4;
+                case 5:
+                    return btnAns5;
+                case 6:
+                    return btnAns6;
+                default:
+                    return btnAns6;
+            }
+        }        
 
         private void btnSkip_Click(object sender, RoutedEventArgs e)
         {
