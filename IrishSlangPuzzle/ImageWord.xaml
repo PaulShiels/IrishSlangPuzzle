@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Green">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.7*"/>
             <RowDefinition Height="1*"/>
@@ -49,7 +49,7 @@
             <TextBlock Name="txtSentance" Margin="5,0,5,1" HorizontalAlignment="Center" Text="There is a fine _____" TextWrapping="Wrap" ></TextBlock>
         </Viewbox>
 
-        <TextBlock Canvas.ZIndex="-1" Visibility="Collapsed" Margin="0,20" Name="txtSure" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" Grid.RowSpan="3" FontSize="40">Are you sure</TextBlock>
+        <TextBlock Canvas.ZIndex="-1" Visibility="Collapsed" Margin="0,5,0,5" Name="txtSure" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" Grid.RowSpan="3" FontSize="35" TextWrapping="Wrap">Are you sure?</TextBlock>
         <StackPanel Name="spnl" Canvas.ZIndex="-1" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="3">
             <Button Name="btnYes" FontSize="30" Width="150" Margin="0,0,50,0" Click="btnYes_Click">Yes</Button>
             <Button Name="btnNo" Grid.Column="2" FontSize="30" Width="150" Click="btnNo_Click">No</Button>
@@ -92,6 +92,7 @@
         </Button>
 
         <Button Margin="4" Name="btnSolve" Grid.Row="6" Grid.Column="1" Content="Solve" Click="btnSolve_Click"></Button>
+        <Button Margin="4" Name="btnNext" Visibility="Collapsed" Grid.Row="6" Grid.Column="1" Content="Next" Click="btnNext_Click"></Button>
         <Button Margin="4" Name="btnSkip" Grid.Row="6" Grid.Column="2" Content="Skip" Click="btnSkip_Click"/>
 
 
