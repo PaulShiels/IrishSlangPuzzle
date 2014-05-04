@@ -16,11 +16,13 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -29,18 +31,70 @@
         </Grid.ColumnDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <TextBlock Grid.ColumnSpan="3" Text="Select the word that corresponds to the picture:" TextWrapping="Wrap" FontSize="32" />
-        <Image Grid.ColumnSpan="3" Grid.Row="1" Source="Images\Car1.jpg" Margin="0"></Image>
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" Text="There is a fine ______" FontSize="40"></TextBlock>
-        <Button Grid.Row="3" Content="Lorry" FontSize="35" Grid.Column="0"></Button>
-        <Button Grid.Row="3" Content="Yock" FontSize="35" Grid.Column="1"></Button>
-        <Button Grid.Row="3" Content="Dog" FontSize="35" Grid.Column="2"></Button>
-
-        <Button Grid.Row="4" Grid.Column="0" Content="Duck" FontSize="35"></Button>
-        <Button Grid.Row="4" Grid.Column="1" Content="Animal" FontSize="35"></Button>
-        <Button Grid.Row="4" Grid.Column="2" Content="Box" FontSize="35"></Button>
-
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBlock Grid.Column="0"  HorizontalAlignment="Left" FontSize="30" Text="Player: "> </TextBlock>
+            <TextBlock Name="txtPlayer" FontSize="30">Johnny Paddy</TextBlock>
+        </StackPanel>
         
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+        <TextBlock FontSize="30">Points:</TextBlock>
+        <TextBlock Name="txtPoints" HorizontalAlignment="Left" FontSize="30">100</TextBlock>
+        </StackPanel>
+
+        <TextBlock Name="txtInstruction" Grid.ColumnSpan="3" Grid.Row="1" Text="Select the word that corresponds to the picture:" TextWrapping="Wrap" FontSize="32" />
+        <Image Name="Image" Grid.ColumnSpan="3" Grid.Row="2" Source="Images\Car1.jpg" Margin="0"></Image>
+        <!--<Viewbox Name="textSentance"  Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" TextInput="There is a fine ______"></Viewbox>-->
+
+        <Viewbox Grid.Row="3" Grid.ColumnSpan="3">
+            <TextBlock Name="txtSentance" Margin="5,0,5,1" HorizontalAlignment="Center" Text="There is a fine _____" TextWrapping="Wrap" ></TextBlock>
+        </Viewbox>
+
+        <TextBlock Canvas.ZIndex="-1" Visibility="Collapsed" Margin="0,20" Name="txtSure" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" Grid.RowSpan="3" FontSize="40">Are you sure</TextBlock>
+        <StackPanel Name="spnl" Canvas.ZIndex="-1" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.ColumnSpan="3">
+            <Button Name="btnYes" FontSize="30" Width="150" Margin="0,0,50,0" Click="btnYes_Click">Yes</Button>
+            <Button Name="btnNo" Grid.Column="2" FontSize="30" Width="150" Click="btnNo_Click">No</Button>
+        </StackPanel>
+
+        <Button Name="btnAns1" Grid.Row="4" Click="ans1_Click">
+            <Viewbox >
+                <TextBlock Name="ans1" MaxWidth="200" TextWrapping="Wrap" Text="Lorry" FontSize="25" Grid.Column="0"></TextBlock>
+            </Viewbox>
+        </Button>
+
+        <Button Name="btnAns2" Grid.Row="4" Grid.Column="1" Click="ans2_Click">
+            <Viewbox>
+                <TextBlock Name="ans2" Grid.Row="4" Text="Yock" FontSize="25"  ></TextBlock>
+            </Viewbox>
+        </Button>
+
+        <Button Name="btnAns3" Grid.Row="4" Grid.Column="2" Click="ans3_Click">
+            <Viewbox>
+                <TextBlock Name="ans3" Grid.Row="4" Text="Dog" FontSize="25" Grid.Column="2"></TextBlock>
+            </Viewbox>
+        </Button>
+
+        <Button Name="btnAns4" Grid.Row="5" Grid.Column="0" Click="ans4_Click" FontFamily="Portable User Interface">
+            <Viewbox>
+                <TextBlock Name="ans4" Grid.Row="5" Grid.Column="0" Text="Duck" FontSize="25"></TextBlock>
+            </Viewbox>
+        </Button>
+
+        <Button Name="btnAns5" Grid.Row="5" Grid.Column="1" Click="ans5_Click">
+            <Viewbox>
+                <TextBlock Name="ans5" Grid.Row="5" Grid.Column="1" Text="Animal" FontSize="25"></TextBlock>
+            </Viewbox>
+        </Button>
+
+        <Button Name="btnAns6" Grid.Row="5" Grid.Column="2" Click="ans6_Click">
+            <Viewbox>
+                <TextBlock Name="ans6" Grid.Row="5" Grid.Column="1" Text="Beast" FontSize="25"></TextBlock>
+            </Viewbox>
+        </Button>
+
+        <Button Margin="4" Name="btnSolve" Grid.Row="6" Grid.Column="1" Content="Solve" Click="btnSolve_Click"></Button>
+        <Button Margin="4" Name="btnSkip" Grid.Row="6" Grid.Column="2" Content="Skip" Click="btnSkip_Click"/>
+
+
     </Grid>
 
 </phone:PhoneApplicationPage>

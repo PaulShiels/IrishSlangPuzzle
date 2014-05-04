@@ -26,7 +26,7 @@ namespace IrishSlangPuzzle
             u.points = 0;
             App.Current.users.Add(u);
 
-            this.Content = new ImageWord();
+            this.Content = new ImageWord(u, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
             //this.Content = new MainPage("New user added");
             
 
