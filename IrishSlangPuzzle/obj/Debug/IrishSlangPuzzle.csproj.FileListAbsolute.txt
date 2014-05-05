@@ -19,3 +19,4 @@ C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangP
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\MainPage.g.cs
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\CreateUser.g.cs
 C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\obj\Debug\ImageWord.g.cs
+C:\Users\Paul\Documents\Visual Studio 2013\Projects\IrishSlangPuzzle\IrishSlangPuzzle\Bin\Debug\IrishSlangPuzzle.dll.config

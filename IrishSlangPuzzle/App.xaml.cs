@@ -9,6 +9,10 @@ using Microsoft.Phone.Shell;
 using IrishSlangPuzzle.Resources;
 using System.Collections.Generic;
 using System.IO;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace IrishSlangPuzzle
 {
@@ -65,13 +69,27 @@ namespace IrishSlangPuzzle
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            // Create the database if it does not exist.
+            using (ToDoDataContext db = new ToDoDataContext(ToDoDataContext.DBConnectionString))
+            {
+                if (db.DatabaseExists() == false)
+                {
+                    //Create the database
+                    db.CreateDatabase();
+                }
+            }
+
         }
 
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            LoadUsers();
+            //LoadUsers();
+            
+
+            
+            
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -246,26 +264,9 @@ namespace IrishSlangPuzzle
                 //u.users.Add(u);
             }
 
-            //try
-            //{
-            //    string line = "";
-            //    using (StreamReader sr = new StreamReader("Users.csv"))
-            //    {
-            //        while ((line = sr.ReadLine()) != null)
-            //        {
-            //            User u = new User();
-            //            u.name = line;
-            //            u.points = 0;
-            //            u.users.Add(u);
-            //        }
-            //    }
-            //}
-            //catch (Exception)
-            //{
-
-            //    //throw;
-            //}
+            
         }
-
     }
+
+
 }

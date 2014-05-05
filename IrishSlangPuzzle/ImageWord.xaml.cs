@@ -35,6 +35,7 @@ namespace IrishSlangPuzzle
         private bool btnSolvePressed = false;
         private Button buttonToFlash;
         private Button PressedButton;
+        private int pressCounter=0;
 
         public ImageWord()
         {
@@ -139,31 +140,32 @@ namespace IrishSlangPuzzle
         {
             if (correctAns == btnNum)
             {
-                u.points++;
-                txtPoints.Text = u.points.ToString();
-                txtSentance.Text = String.Format("You're Right!!");
-                ShowNextBtn();
-                buttonToFlash.IsEnabled = true;
-                buttonToFlash.Background = new SolidColorBrush(Colors.Green);
-                buttonToFlash.Foreground = new SolidColorBrush(Colors.Yellow);
-                buttonToFlash.Click += DoNothing;
+                if (pressCounter == 0)
+                {
+                    u.points++;
+                    txtPoints.Text = u.points.ToString();
+                    txtSentance.Text = String.Format("You're Right!!");
+                    ShowNextBtn();
+                    buttonToFlash.IsEnabled = true;
+                    buttonToFlash.Background = new SolidColorBrush(Colors.Green);
+                    buttonToFlash.Foreground = new SolidColorBrush(Colors.Yellow);
+                    pressCounter++;
+                }
+                
             }
             else
             {
-                txtSentance.Text = String.Format("Sorry Wrong Answer!!");
-                u.points -= 2;
-                txtPoints.Text = u.points.ToString();
-                ShowNextBtn();
-                PressedButton.IsEnabled = true;
-                PressedButton.Background = new SolidColorBrush(Colors.Red);
-                buttonToFlash.Foreground = new SolidColorBrush(Colors.Yellow);
-                buttonToFlash.Click += DoNothing;
+                if (pressCounter == 0)
+                {
+                    txtSentance.Text = String.Format("Sorry Wrong Answer!!");
+                    u.points -= 2;
+                    txtPoints.Text = u.points.ToString();
+                    ShowNextBtn();
+                    PressedButton.IsEnabled = true;
+                    PressedButton.Background = new SolidColorBrush(Colors.Red);
+                    buttonToFlash.Foreground = new SolidColorBrush(Colors.Yellow);
+                }
             }
-        }
-
-        private void DoNothing(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         #region answer button click events
