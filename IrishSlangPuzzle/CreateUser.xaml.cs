@@ -13,10 +13,10 @@ namespace IrishSlangPuzzle
 {
     public partial class CreateUser : PhoneApplicationPage
     {
+
         public CreateUser()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void btnSubmitName_Click(object sender, RoutedEventArgs e)
@@ -24,9 +24,10 @@ namespace IrishSlangPuzzle
             User u = new User();
             u.name = txtUserName.Text;
             u.points = 0;
-            App.Current.users.Add(u);
+            //db.User_tbl.InsertOnSubmit(u);
+            //App.Current.users.Add(u);
 
-            this.Content = new ImageWord(u, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
+            //this.Content = new ImageWord(u, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
             //this.Content = new MainPage("New user added");
             
 
@@ -35,21 +36,5 @@ namespace IrishSlangPuzzle
             //Start Game
         }
 
-        private void WriteUserToFile(User u)
-        {
-            try
-            {
-                using (StreamWriter sw = new StreamWriter("Users.csv"))
-                {
-                    sw.WriteLine("{0}:{1}", u.name, u.points);
-                }
-            }
-            catch (Exception e)
-            {
-                
-                MessageBox.Show(e.ToString());
-            }
-            
-        }
     }
 }

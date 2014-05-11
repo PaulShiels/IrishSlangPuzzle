@@ -25,7 +25,7 @@ namespace IrishSlangPuzzle
 
         public override string ToString()
         {
-            return String.Format("{0} \t {1}", name, points);
+            return String.Format("{0}\t\t\t\t\t{1}", name, points);
         }
     }
 }

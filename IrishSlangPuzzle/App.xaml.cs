@@ -13,6 +13,7 @@ using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using Microsoft.Phone.Data.Linq;
 
 namespace IrishSlangPuzzle
 {
@@ -20,6 +21,7 @@ namespace IrishSlangPuzzle
     public partial class App : Application
     {
         public List<User> users { get; set; }
+
 
         public static new App Current
         {
@@ -37,6 +39,16 @@ namespace IrishSlangPuzzle
         /// </summary>
         public App()
         {
+            // Create the database if it does not exist.
+            using (IrishSlangCtx db = new IrishSlangCtx(IrishSlangCtx.DBConnectionString))
+            {
+                if (db.DatabaseExists() == false)
+                {
+                    //Create the database
+                    db.CreateDatabase();
+                }
+            }
+
             // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
 
@@ -69,15 +81,7 @@ namespace IrishSlangPuzzle
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
-            // Create the database if it does not exist.
-            using (ToDoDataContext db = new ToDoDataContext(ToDoDataContext.DBConnectionString))
-            {
-                if (db.DatabaseExists() == false)
-                {
-                    //Create the database
-                    db.CreateDatabase();
-                }
-            }
+            
 
         }
 
@@ -86,9 +90,16 @@ namespace IrishSlangPuzzle
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
             //LoadUsers();
-            
+            //bool created = db.DatabaseExists();
 
-            
+            //User u = new User();
+            //u.name = "Paddy";
+            //u.points = 0;
+            //User_tbl utbl = new User_tbl();
+            ////utbl.UserName = u.name;
+            ////utbl.UserPoints = Convert.ToInt32(u.points);
+            //db.User_tbls.InsertOnSubmit(utbl);
+            //db.SubmitChanges();
             
         }
 
