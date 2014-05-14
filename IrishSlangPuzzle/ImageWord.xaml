@@ -32,21 +32,21 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBlock Grid.Column="0"  HorizontalAlignment="Left" FontSize="30" Text="Player: "> </TextBlock>
-            <TextBlock Name="txtPlayer" FontSize="30">Johnny Paddy</TextBlock>
+            <TextBlock Grid.Column="0" Foreground="Aqua" HorizontalAlignment="Left" FontSize="30" Text="Player: "> </TextBlock>
+            <TextBlock Name="txtPlayer" Foreground="DarkSalmon" FontSize="30" FontWeight="Bold">Johnny Paddy</TextBlock>
         </StackPanel>
         
         <StackPanel Grid.Column="2" Orientation="Horizontal">
-            <TextBlock FontSize="30" Text="Points: "></TextBlock>
-        <TextBlock Name="txtPoints" HorizontalAlignment="Left" FontSize="30">100</TextBlock>
+            <TextBlock FontSize="30" Foreground="Aqua" Text="Points: "></TextBlock>
+        <TextBlock Name="txtPoints" Foreground="DarkSalmon" FontWeight="Bold" HorizontalAlignment="Left" FontSize="30">100</TextBlock>
         </StackPanel>
 
-        <TextBlock Name="txtInstruction" Grid.ColumnSpan="3" Grid.Row="1" Text="Finish the sentance..." TextWrapping="Wrap" FontSize="32" />
+        <TextBlock Name="txtInstruction" Foreground="Black" Grid.ColumnSpan="3" Grid.Row="1" Text="Finish the sentance..." TextWrapping="Wrap" FontSize="35" FontWeight="Bold" />
         <Image Name="Image" Grid.ColumnSpan="3" Grid.Row="2" Source="Images\Car1.jpg" Margin="0"></Image>
         <!--<Viewbox Name="textSentance"  Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" TextInput="There is a fine ______"></Viewbox>-->
 
         <Viewbox Grid.Row="3" Grid.ColumnSpan="3">
-            <TextBlock Name="txtSentance" Margin="5,0,5,1" HorizontalAlignment="Center" Text="There is a fine _____" TextWrapping="Wrap" ></TextBlock>
+            <TextBlock Name="txtSentance" Foreground="LightCoral" Margin="5,0,5,1" HorizontalAlignment="Center" Text="There is a fine _____" TextWrapping="Wrap" FontFamily="Segoe Print" FontWeight="SemiBold" />
         </Viewbox>
 
         <TextBlock Canvas.ZIndex="-1" Visibility="Collapsed" Margin="0,5,0,5" Name="txtSure" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" Grid.RowSpan="3" FontSize="35" TextWrapping="Wrap">Are you sure?</TextBlock>

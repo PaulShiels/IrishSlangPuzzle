@@ -8,6 +8,7 @@ namespace IrishSlangPuzzle
 {
     public class User
     {
+        public int userId { get; set; }
         public string name { get; set; }
         public int points { get; set; }
         
@@ -17,8 +18,9 @@ namespace IrishSlangPuzzle
 
         }
 
-        public User(string name, int points)
+        public User(int userId, string name, int points)
         {
+            this.userId = userId;
             this.name = name;
             this.points = points;
         }

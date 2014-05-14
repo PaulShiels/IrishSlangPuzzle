@@ -33,8 +33,16 @@
 
         <TextBlock Text="Name" Grid.Row="1" FontSize="35" Margin="15,0"></TextBlock>
         <TextBlock Text="Points" Grid.Row="1" FontSize="35" HorizontalAlignment="Center" Grid.Column="1"></TextBlock>
-        
-        <ListBox Name="lbxUsers" Grid.Row="1" Grid.ColumnSpan="2" Margin="18,50, 15, 0" FontSize="50">
+
+        <ListBox Name="lbxUsers" Grid.Row="1" SelectedValue="{Binding Path=UserId}" Grid.ColumnSpan="2" Margin="18,50, 15, 0" FontSize="50" SelectionChanged="lbxUsers_SelectionChanged" FontFamily="Portable User Interface">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=UserName}" FontFamily="Portable User Interface" ></TextBlock>
+                        <TextBlock Text="{Binding Path=Points}" FontFamily="Portable User Interface" ></TextBlock>
+                    </StackPanel>                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <!--ContentPanel - place additional content here-->

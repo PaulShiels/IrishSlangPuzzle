@@ -171,38 +171,56 @@ namespace IrishSlangPuzzle
         #region answer button click events
         private void ans1_Click(object sender, RoutedEventArgs e)
         {
-            PressedButton = btnAns1;
-            CheckAnswer(1);            
+            if (btnSolvePressed == false)
+            {
+                PressedButton = btnAns1;
+                CheckAnswer(1);
+            }
         }
 
         private void ans2_Click(object sender, RoutedEventArgs e)
         {
-            PressedButton = btnAns2;
-            CheckAnswer(2);
+            if (btnSolvePressed == false)
+            {
+                PressedButton = btnAns2;
+                CheckAnswer(2);
+            }
         }
 
         private void ans3_Click(object sender, RoutedEventArgs e)
         {
-            PressedButton = btnAns3;
-            CheckAnswer(3);
+            if (btnSolvePressed == false)
+            {
+                PressedButton = btnAns3;
+                CheckAnswer(3);
+            }
         }
 
         private void ans4_Click(object sender, RoutedEventArgs e)
         {
-            PressedButton = btnAns4;
-            CheckAnswer(4);
+            if (btnSolvePressed == false)
+            {
+                PressedButton = btnAns4;
+                CheckAnswer(4);
+            }
         }
 
         private void ans5_Click(object sender, RoutedEventArgs e)
         {
-            PressedButton = btnAns5;
-            CheckAnswer(5);
+            if (btnSolvePressed == false)
+            {
+                PressedButton = btnAns5;
+                CheckAnswer(5);
+            }
         }
 
         private void ans6_Click(object sender, RoutedEventArgs e)
         {
-            PressedButton = btnAns6;
-            CheckAnswer(6);
+            if (btnSolvePressed == false)
+            {
+                PressedButton = btnAns6;
+                CheckAnswer(6);
+            }
         }
         #endregion
 
@@ -321,13 +339,14 @@ namespace IrishSlangPuzzle
             btnSkip.IsEnabled = false;
             btnSkip.Opacity = 0;
             setOpacityZindex(0.5, 1);
-            PressedButton.Opacity = 1;
+            buttonToFlash.Opacity = 1;
             btnAns1.IsEnabled = false;
             btnAns2.IsEnabled = false;
             btnAns3.IsEnabled = false;
             btnAns4.IsEnabled = false;
             btnAns5.IsEnabled = false;
             btnAns6.IsEnabled = false;
+            buttonToFlash.IsEnabled = true;
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)

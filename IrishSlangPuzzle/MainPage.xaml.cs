@@ -18,7 +18,7 @@ namespace IrishSlangPuzzle
     public partial class MainPage : PhoneApplicationPage, INotifyPropertyChanged
     {
         // Data context for the local database
-        private IrishSlangCtx db;
+        public static IrishSlangCtx db;
 
         // Define an observable collection property that controls can bind to.
         private ObservableCollection<UserTbl> _user_tbl;
@@ -37,6 +37,7 @@ namespace IrishSlangPuzzle
                 }
             }
         }
+        //private List<User> usersList = new List<User>();
 
         public MainPage()
         {
@@ -59,18 +60,53 @@ namespace IrishSlangPuzzle
 
         }
 
+        public MainPage(string buttomName)
+        {
+            InitializeComponent();
+
+            //if (App.Current.users.Count() > 0)
+            //    foreach (User us in App.Current.users)
+            //    {
+            //        lbxUsers.Items.Add(us.ToString());
+            //    }
+            btnAddUser.Content = buttomName;
+
+            //var q = from p in App.db.User_tbls
+            //        select p.UserName;
+
+            //foreach (var un in q)
+            //{
+            //    lbxUsers.Items.Add(un);
+            //}
+
+
+            //User user = new User();
+            //user.name = "Joe";
+            //ToDoItem item = new ToDoItem();
+            //item.UserName = user.name;
+            //IrishSlangDB.ToDoItems.InsertOnSubmit(item);
+            //IrishSlangDB.SubmitChanges();
+        }
+
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             // Define the query to gather all of the to-do items.
             var toDoItemsInDB = from UserTbl todo in db.UserTable
                                 select todo;
+            var users = from u in db.UserTable
+                        select u;
 
-            foreach (var item in toDoItemsInDB)
+            lbxUsers.ItemsSource = users;
+
+            //foreach (var user in users)
             {
-                User nu = new User();
-                nu.name = item.UserName;
-                nu.points = item.Points;
-                lbxUsers.Items.Add(nu.ToString());
+                //User nu = new User();
+                //nu.userId = item.UserId;
+                //nu.name = item.UserName;
+                //nu.points = item.Points;
+                //usersList.Add(nu);
+                //App.Current.users.Add(nu);
+                
             }
             //lbxUsers.Items.Add(toDoItemsInDB.FirstOrDefault());
 
@@ -92,34 +128,6 @@ namespace IrishSlangPuzzle
             db.SubmitChanges();
         }
 
-        public MainPage(string buttomName)
-        {
-            InitializeComponent();
-            
-            //if (App.Current.users.Count() > 0)
-            //    foreach (User us in App.Current.users)
-            //    {
-            //        lbxUsers.Items.Add(us.ToString());
-            //    }
-            btnAddUser.Content = buttomName;
-
-            //var q = from p in App.db.User_tbls
-            //        select p.UserName;
-
-            //foreach (var un in q)
-            //{
-            //    lbxUsers.Items.Add(un);
-            //}
-            
-
-            //User user = new User();
-            //user.name = "Joe";
-            //ToDoItem item = new ToDoItem();
-            //item.UserName = user.name;
-            //IrishSlangDB.ToDoItems.InsertOnSubmit(item);
-            //IrishSlangDB.SubmitChanges();
-        }
-
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -139,7 +147,18 @@ namespace IrishSlangPuzzle
             this.Content = new CreateUser();
         }
 
-        
+        private void lbxUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            var user = (from u in db.UserTable
+                       where u == lbxUsers.SelectedItem
+                       select u).SingleOrDefault();
+
+            User us = new User();
+            us.name = user.UserName;
+            us.points = user.Points;
+            this.Content = new ImageWord(us, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
+        }        
     }
 
     #region Database
@@ -166,7 +185,7 @@ namespace IrishSlangPuzzle
         private int _userId;
 
         [Column(IsPrimaryKey = true, IsDbGenerated = true, DbType = "INT NOT NULL Identity", CanBeNull = false, AutoSync = AutoSync.OnInsert)]
-        public int ToDoItemId
+        public int UserId
         {
             get
             {

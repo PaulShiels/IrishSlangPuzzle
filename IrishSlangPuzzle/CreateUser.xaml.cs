@@ -22,12 +22,17 @@ namespace IrishSlangPuzzle
         private void btnSubmitName_Click(object sender, RoutedEventArgs e)
         {
             User u = new User();
-            u.name = txtUserName.Text;
+            u.name = txtUserName.Text.First().ToString().ToUpper()+String.Join("", txtUserName.Text.Skip(1));
             u.points = 0;
+            UserTbl tbl = new UserTbl();
+            tbl.UserName = u.name;
+            tbl.Points = u.points;
+            MainPage.db.UserTable.InsertOnSubmit(tbl);
+            MainPage.db.SubmitChanges();
             //db.User_tbl.InsertOnSubmit(u);
             //App.Current.users.Add(u);
 
-            //this.Content = new ImageWord(u, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
+            this.Content = new ImageWord(u, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
             //this.Content = new MainPage("New user added");
             
 
