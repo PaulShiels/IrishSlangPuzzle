@@ -146,6 +146,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Car1.jpg" />
+    <Content Include="Images\ClaneMad.jpg" />
+    <Content Include="Images\Clout.jpg" />
     <Content Include="Images\Lion1.jpg" />
   </ItemGroup>
   <ItemGroup>

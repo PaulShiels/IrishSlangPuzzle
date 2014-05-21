@@ -46,7 +46,7 @@
         <!--<Viewbox Name="textSentance"  Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" TextInput="There is a fine ______"></Viewbox>-->
 
         <Viewbox Grid.Row="3" Grid.ColumnSpan="3">
-            <TextBlock Name="txtSentance" Foreground="LightCoral" Margin="5,0,5,1" HorizontalAlignment="Center" Text="There is a fine _____" TextWrapping="Wrap" FontFamily="Segoe Print" FontWeight="SemiBold" />
+            <TextBlock Name="txtSentance" MaxWidth="300" TextWrapping="Wrap" Foreground="LightCoral" Margin="5,0,5,1" HorizontalAlignment="Center" Text="There is a fine _____" FontFamily="Segoe Print" FontWeight="SemiBold" />
         </Viewbox>
 
         <TextBlock Canvas.ZIndex="-1" Visibility="Collapsed" Margin="0,5,0,5" Name="txtSure" Grid.ColumnSpan="3" HorizontalAlignment="Center" Grid.Row="4" Grid.RowSpan="3" FontSize="35" TextWrapping="Wrap">Are you sure?</TextBlock>

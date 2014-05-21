@@ -21,6 +21,8 @@ namespace IrishSlangPuzzle
     public partial class App : Application
     {
         public List<User> users { get; set; }
+        public List<ImageWord> imgPuzzle = new List<ImageWord>();
+        public int puzzleIndex = 0;
 
 
         public static new App Current

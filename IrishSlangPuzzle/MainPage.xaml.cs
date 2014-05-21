@@ -157,8 +157,19 @@ namespace IrishSlangPuzzle
             User us = new User();
             us.name = user.UserName;
             us.points = user.Points;
-            this.Content = new ImageWord(us, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4);
-        }        
+
+            AddPuzzleToList(us);
+            this.Content = App.Current.imgPuzzle[App.Current.puzzleIndex];
+            App.Current.puzzleIndex++;
+            
+        }  
+      
+        private void AddPuzzleToList(User us)
+        {
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Clout.jpg", "Johnny got a ______ on the head last night on his way home.", "Shock", "Knock", "Tap", "Touch", "Clout", "Pat", 5));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\ClaneMad.jpg", "That man is away ______ mad.", "Crazy", "Angry", "Clane", "Tale", "Way", "Awful", 3));
+        }
     }
 
     #region Database

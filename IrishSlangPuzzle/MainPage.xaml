@@ -37,8 +37,8 @@
         <ListBox Name="lbxUsers" Grid.Row="1" SelectedValue="{Binding Path=UserId}" Grid.ColumnSpan="2" Margin="18,50, 15, 0" FontSize="50" SelectionChanged="lbxUsers_SelectionChanged" FontFamily="Portable User Interface">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=UserName}" FontFamily="Portable User Interface" ></TextBlock>
+                    <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+                        <TextBlock Width="300"  Text="{Binding Path=UserName}" FontFamily="Portable User Interface" ></TextBlock>
                         <TextBlock Text="{Binding Path=Points}" FontFamily="Portable User Interface" ></TextBlock>
                     </StackPanel>                    
                 </DataTemplate>

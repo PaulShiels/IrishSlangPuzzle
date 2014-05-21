@@ -328,7 +328,16 @@ namespace IrishSlangPuzzle
 
         private void btnSkip_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new ImageWord(u, "Images\\Lion1.jpg", "Would you take a look at the  ______", "Beast", "Wee Dinasor", "Big Ket", "Buck", "Pet", "Dog", 3);
+            try
+            {
+                this.Content = App.Current.imgPuzzle[App.Current.puzzleIndex];
+                App.Current.puzzleIndex++;
+            }
+            catch
+            {
+                this.Content = App.Current.imgPuzzle[0];
+            }
+                //new ImageWord(u, "Images\\Lion1.jpg", "Would you take a look at the  ______", "Beast", "Wee Dinasor", "Big Ket", "Buck", "Pet", "Dog", 3);
         }
 
         private void ShowNextBtn()
@@ -351,7 +360,16 @@ namespace IrishSlangPuzzle
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new ImageWord(u, "Images\\Lion1.jpg", "Would you take a look at the  ______", "Beast", "Wee Dinasor", "Big Ket", "Buck", "Pet", "Dog", 3);
+            try
+            {
+                this.Content = App.Current.imgPuzzle[App.Current.puzzleIndex];
+                App.Current.puzzleIndex++;
+            }
+            catch
+            {
+                this.Content = App.Current.imgPuzzle[0];
+            }
+            //this.Content = new ImageWord(u, "Images\\Lion1.jpg", "Would you take a look at the  ______", "Beast", "Wee Dinasor", "Big Ket", "Buck", "Pet", "Dog", 3);
         }
 
 
