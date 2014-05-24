@@ -166,9 +166,47 @@ namespace IrishSlangPuzzle
       
         private void AddPuzzleToList(User us)
         {
+            
             App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Car1.jpg", "Isn't that a fine ______", "Boat", "Animal", "Beast", "Yock", "Box", "Dog", 4));
             App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Clout.jpg", "Johnny got a ______ on the head last night on his way home.", "Shock", "Knock", "Tap", "Touch", "Clout", "Pat", 5));
             App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\ClaneMad.jpg", "That man is away ______ mad.", "Crazy", "Angry", "Clane", "Tale", "Way", "Awful", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\CutOfHim.jpg", "Would you look at the _____ of your man over there", "Heed", "Cut", "Form", "Size", "Hare", "Like" , 2));
+            //App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\  Care, Shake, Flit, Hate, Thought, Remark
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\DogDander.jpg", "Will you take the dog for a _______ this evening?", "Run", "Walk", "Dinner", "Dander", "Cruise", "Trip",4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\FeelBailing.jpg", "Paddys over in the _____ baling hay.", "Grass", "Bog", "Feel", "Shuck", "Hedge", "Moss", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\SuckinDiesel.jpg", "Now were _____ Diesel!!", "Making", "Spittin", "Pushing", "Suckin", "Getting", "Horsing", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\LadsOnTear.jpg", "The lads are on the _____!", "Tear", "Coffee", "Beer", "Tae", "Full", "Cut", 1));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Fella.jpg", "Ask that _____ over there.", "Boy", "Person", "Young Man", "Filla", "Kid", "Las", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\MessyFlur.jpg", "Would ya look at the shape of the _____!", "Grass", "Ground", "Huse", "Glass", "Road", "Flur", 6));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Futering.jpg", "He's ________ in the shed.", "Messing", "Working", "Futering", "Poking", "Screwing", "Hokeing", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Foundered.jpg", "You look _______ today!", "Cold", "Roasted", "Foundered", "Boiled", "Shuck", "Hated", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\SoapFromBottle.jpg", "Will you give me a ______ out of that bottle?", "Soap", "Pull", "Drink", "Drop", "Taste", "Gulp", 1));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\DogGinnHouse.jpg", "Tell that dog to _____ to the house!", "Enter", "Go", "Shift", "Come", "Ginn", "Git", 5));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\FeelingGrand.jpg", "I'm feeling ______ today!", "Thousand", "Sorry", "Grand", "Happy", "Million", "Fine", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Hanlin.jpg", "We got in some ______ with the car yesterday!", "Buking", "Disaster", "Fillin", "Shape", "Trouble", "Hanlin", 6));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\TakeItHandy.jpg", "Take it ______ on the road today!", "Quick", "Handy", "Easily", "Purty", "Slow", "Filla", 2));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Hashing.jpg", "That was a hard days _______!", "Pushing", "Work", "Pinting", "Hashing", "Dozin", "Haulin", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\CatchHowl.jpg", "I bet you can't catch a _____ to this!", "Tether", "Howl", "Ship", "Hate", "Auwl", "Puk", 2));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\GonnOver.jpg", "_____ over to the shop and get me fags will ya?", "Mo'ver", "Go", "Cut", "Gonn", "Minn", "Run", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\HayYaAny.jpg", "_____ you got any milk for the tea?", "Grass", "Hi", "De", "Hay", "Moss", "Say", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\LockaPints.jpg", "C'mon for a _____ of pints Johnny!", "Few", "Bolt", "Couple", "Dozen", "Lock", "Button", 5));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\MineThat.jpg", "Do you _____ the night ya fell in the river Mick?", "Fine", "Call", "Mine", "Remember", "Fray", "Mem", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\NayTroube.jpg", "That's ____ trouble at all boss!", "No", "Hate", "Tarra", "Nall", "Nay", "Quare", 5));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\PieceWithTae.jpg", "Wil you have a ______ with you tae?", "Slice", "Bit", "Piece", "Block", "Gulp", "Dose", 3));
+            //App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\QuareGame.jpg", "That was a quare game last night, wasn't it?"
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\MassSiege.jpg", "They had a wile ______ at mass last week!", "Session", "Disaster", "Howl", "Staging", "Run", "Siege", 6));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\CarInShuck.jpg", "Johnny put the car into the _____ on the way home from the pub last night.", "Stream", "Water Hole", "Moss", "Shuck", "Hedge", "Feel", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\StageNewYock.jpg", "Will we go for a _____ in your new yock?", "Run", "Stage", "Step", "Look", "Ship", "Cut", 2));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\SowlVan.jpg", "Did I tell ya I _____ the van last week?", "Read", "Shipped", "Toul", "Sowl", "Crashed", "Bought", 4));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\ThranMan.jpg", "You wasting you time talking to Jimmy, he's a very _____ man!", "Arrogant", "Stubborn", "Ignorant", "Purty", "Awkward", "Thran", 6));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\WerntTouwl.jpg", "Well you can't say you weren't _____!", "Informed", "Cautioned", "Toul", "Warned", "Larned", "Tipped", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\FineWaal.jpg", "Isn't that a fine _____ Pat built last week?", "Shed", "Waal", "Row", "Dour", "Huse", "Slap", 2));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\Wains.jpg", "Will you shout the _____ and tell them to come into the house?", "Kids", "Wee'ns", "Youths", "Bucks", "Wains", "Young'ns", 5));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\WakeAsWater.jpg", "Sean is _____ as water today!", "Stout", "Thin", "Fit", "Strong", "Wake", "Tite", 5));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\WileDay.jpg", "Isn't it a _____ day out?", "Awful", "G'up", "Wile", "Rough", "Some", "Ginn", 3));
+            App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\BrokenWindey.jpg", "Tim put the ball through the windey when joe was eating his dinner.", "Dour", "Windey", "Hole", "Chimley", "Gap", "Flur", 2));
+                
+                //App.Current.imgPuzzle.Add(new ImageWord(us, "Images\\BrokenWindey.jpg, 
         }
     }
 
